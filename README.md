@@ -42,6 +42,8 @@ Max Pooling → Fully Connected Layers → Output (2 classes)
 - **97% validation accuracy** - Trained on expanded dataset
 - **Small model** - 275KB trained model
 - **Self-contained** - Vocabulary stored in checkpoint
+- **Multilingual support** - English and Spanish prompts
+- **Aggregated dataset** - 17,195 examples (63% injections, 37% safe)
 
 ## Quick Start
 
@@ -108,23 +110,14 @@ pip install torch --index-url https://download.pytorch.org/whl/cpu
 pip install torch torchvision torchaudio
 ```
 
-### Data Migration (Development Only)
+### Data Aggregation
 
-If you're developing locally and have an existing SQLite database, you can migrate it to Parquet format:
+The package includes an aggregated dataset of 17,195 examples from multiple sources:
+- **Original Prompt Detective dataset**: Manually curated examples
+- **deepset/prompt-injections**: 662 examples (Apache 2.0 License)
+- **contrasto.ai project**: Processed English and Spanish examples
 
-```bash
-# Migrate your existing database to parquet format
-python scripts/migrate_to_parquet.py
-
-# This will create:
-# - data/prompts.parquet (full dataset)
-# - data/train.parquet (80% training split)
-# - data/val.parquet (10% validation split)
-# - data/test.parquet (10% test split)
-# - data/prompts.db.backup (backup of original database)
-```
-
-**Note**: When installed via pip, the package includes pre-processed data files. This migration script is only needed for local development with custom data.
+All data has been deduplicated and split into train/val/test sets (80/10/10).
 
 ### Basic Usage
 
@@ -201,13 +194,15 @@ prompt_detective/
 │   ├── export_parquet.py       # Export data to various formats
 │   └── __init__.py
 ├── data/                       # Data directory
-│   ├── prompts.parquet         # Main dataset (Parquet format)
-│   ├── train.parquet           # Training split
-│   ├── val.parquet             # Validation split  
-│   ├── test.parquet            # Test split
-│   ├── prompts.db.backup       # Backup of original SQLite database
-│   └── raw/                    # Raw data files
-│       └── output.json
+│   ├── train.parquet           # Training split (13,756 examples)
+│   ├── val.parquet             # Validation split (1,719 examples)
+│   ├── test.parquet            # Test split (1,720 examples)
+│   ├── prompts_full.parquet    # Full aggregated dataset (17,195 examples)
+│   └── backup_original/        # Backup of original data files
+│       ├── prompts.json
+│       ├── prompts.db
+│       ├── external/
+│       └── processed/
 ├── models/                     # Model files
 │   └── best_model.pt           # Trained model checkpoint
 ├── config/                     # Configuration files
@@ -317,20 +312,19 @@ stats = store.get_statistics()
 print(f"Injection rate: {stats['injection_percentage']:.1f}%")
 ```
 
-## Database Schema
+## Dataset Statistics
 
-```sql
-CREATE TABLE prompts (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    text TEXT NOT NULL,
-    is_injection BOOLEAN NOT NULL
-)
-```
+**Aggregated Dataset**:
+- **17,195 total prompts**
+- **10,833 injection prompts** (63.0%)
+- **6,362 safe prompts** (37.0%)
+- **Languages**: English (primary), Spanish (secondary)
+- **Data splits**: Train (80%), Validation (10%), Test (10%)
 
-**Current Stats**:
-- **1,045 total prompts**
-- **108 injection prompts** (10.3%)
-- **937 safe prompts** (89.7%)
+**Sources**:
+- Original Prompt Detective dataset
+- `deepset/prompt-injections` (Apache 2.0 License)
+- `AnaBelenBarbero/detect-prompt-injection` (contrasto.ai project)
 
 ## Usage Examples
 

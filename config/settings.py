@@ -14,16 +14,13 @@ MODELS_DIR = BASE_DIR / "models"
 TESTS_DIR = BASE_DIR / "tests"
 
 # File paths
-DB_PATH = (
-    DATA_DIR / "prompts.db"
-)  # Legacy, kept for backward compatibility during transition
 MODEL_PATH = MODELS_DIR / "best_model.pt"
 
 # Parquet data paths
-PARQUET_PATH = DATA_DIR / "prompts.parquet"
 TRAIN_PARQUET_PATH = DATA_DIR / "train.parquet"
 VAL_PARQUET_PATH = DATA_DIR / "val.parquet"
 TEST_PARQUET_PATH = DATA_DIR / "test.parquet"
+FULL_PARQUET_PATH = DATA_DIR / "prompts_full.parquet"
 
 # Test fixtures
 TEST_FIXTURES_DIR = TESTS_DIR / "fixtures"

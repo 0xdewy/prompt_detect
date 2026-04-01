@@ -29,15 +29,18 @@ Prompt Detective is a convolutional neural network (CNN) model designed to detec
 
 ## Training Data
 
-The model was trained on a curated dataset of:
-- **937 safe prompts** (89.7%)
-- **107 injection examples** (10.3%)
+The model was trained on an aggregated dataset of:
+- **6,362 safe prompts** (37.0%)
+- **10,833 injection examples** (63.0%)
+- **Total: 17,195 examples** (English and Spanish)
 
 The dataset includes various types of prompt injection attacks:
 - Direct instruction overrides
 - Context manipulation
 - Social engineering attempts
 - Encoded/obfuscated injections
+- Role-playing jailbreaks
+- Multi-language injection attempts
 
 ## Usage
 
@@ -81,10 +84,11 @@ The model achieves the following performance metrics on the test set:
 
 ## Limitations
 
-1. **Class Imbalance**: The dataset has significantly more safe prompts than injections (89.7% vs 10.3%)
+1. **Class Distribution**: The dataset has more injection examples than safe prompts (63% vs 37%)
 2. **Evolving Threats**: New prompt injection techniques may not be covered
 3. **False Positives**: Some legitimate but unusual prompts may be flagged
 4. **Context Limitations**: The model analyzes text in isolation without broader conversation context
+5. **Language Coverage**: Better performance on English than Spanish prompts
 
 ## Ethical Considerations
 
