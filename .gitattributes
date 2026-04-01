@@ -1,0 +1,26 @@
+# Track large files with Git LFS
+*.parquet filter=lfs diff=lfs merge=lfs -text
+*.pt filter=lfs diff=lfs merge=lfs -text
+*.pth filter=lfs diff=lfs merge=lfs -text
+*.bin filter=lfs diff=lfs merge=lfs -text
+*.safetensors filter=lfs diff=lfs merge=lfs -text
+prompts.json filter=lfs diff=lfs merge=lfs -text
+
+# Text files
+*.py text
+*.md text
+*.txt text
+*.toml text
+*.json text
+*.yml text
+*.yaml text
+*.ini text
+*.cfg text
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary

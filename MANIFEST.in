@@ -1,0 +1,41 @@
+# Include package data files
+include README.md
+include requirements.txt
+include pyproject.toml
+
+# Include data files
+include data/*.parquet
+include data/external/*.csv
+include data/processed/*
+
+# Model files are handled by force-include in pyproject.toml
+
+# Include configuration
+include config/*.py
+
+# Include test fixtures
+include tests/fixtures/*.txt
+
+# Recursive include for Python source files
+recursive-include prompt_detective *.py
+recursive-include prompt_detective/models *.py
+recursive-include prompt_detective/utils *.py
+recursive-include tests *.py
+
+# Exclude development and cache files
+exclude .gitignore
+exclude .env*
+exclude .pytest_cache/*
+exclude .ruff_cache/*
+exclude __pycache__/*
+exclude *.pyc
+exclude *.pyo
+exclude *.pyd
+exclude .Python
+exclude venv/
+exclude .venv*/
+exclude env/
+exclude .env/
+exclude *.egg-info/
+exclude dist/
+exclude build/

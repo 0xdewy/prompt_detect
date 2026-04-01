@@ -1,2 +1,161 @@
-__pycache__
-.ruff_cache
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyTorch / HuggingFace cache
+.cache/
+.huggingface/
+.hf/
+transformers/
+~/.cache/huggingface/
+~/.cache/torch/
+
+# UV package manager
+.uv/
+
+# Poetry
+poetry.lock
+
+# Pipenv
+Pipfile.lock
+
+# PDM
+.pdm.toml
+__pypackages__/
+
+# Virtual environments
+venv/
+env/
+.venv/
+.venv-*/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Model checkpoints and datasets (should be downloaded, not committed)
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.safetensors
+*.onnx
+*.h5
+*.hdf5
+*.joblib
+*.pkl
+*.pickle
+
+# HuggingFace datasets cache
+datasets/
+~/.cache/huggingface/datasets/
+
+# Large data files (should use git-lfs if needed)
+data/raw/
+data/processed/
+data/external/
+*.parquet
+*.feather
+*.arrow
+*.parquet.*
+
+# Logs
+*.log
+logs/
+
+# Data files
+*.csv
+*.json
+*.xlsx
+*.xls
+
+# Temporary files
+temp/
+tmp/
+*.tmp
+*.temp
+
+# Jupyter
+.ipynb_checkpoints
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+.nox/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Ruff
+.ruff_cache/
+
+# Output files
+output/
+results/
+predictions/
+checkpoints/
+models/
+
+# HuggingFace Spaces
+app.py
+requirements_hf.txt
+README_hf.md
+
+# Large files (use git-lfs)
+*.parquet
+prompts.json
+
+# Temporary Gradio files
+gradio_cached_examples/
+gradio_temp/
