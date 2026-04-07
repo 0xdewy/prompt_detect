@@ -21,7 +21,7 @@ requests==2.31.0
 
 # Utilities
 pydantic==2.5.0
-python-multipart==0.0.6
+python-multipart==0.0.22
 structlog==23.2.0
 
 # Development

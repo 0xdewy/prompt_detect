@@ -6,7 +6,7 @@ uvicorn[standard]==0.24.0
 
 # Data validation
 pydantic==2.5.0
-python-multipart==0.0.6
+python-multipart==0.0.22
 
 # Machine learning dependencies (CPU optimized)
 torch==2.11.0+cpu --index-url https://download.pytorch.org/whl/cpu
@@ -27,4 +27,4 @@ requests==2.31.0
 python-dotenv==1.0.0
 
 # Development (optional)
-python-multipart==0.0.6
+python-multipart==0.0.22
