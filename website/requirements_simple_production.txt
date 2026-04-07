@@ -12,7 +12,7 @@ python-multipart==0.0.6
 torch==2.11.0
 torchvision==0.16.0
 transformers==4.36.2
-sentencepiece==0.1.99
+sentencepiece==0.2.1
 tokenizers==0.15.1
 
 # Numeric computing
